@@ -7,9 +7,21 @@
 <h4>Book an Appointment</h4>
 
 @using (Html.BeginForm()) { //html-helpers generate error-html, if recived model is invalid
+
+    @Html.ValidationSummary(true)
+
+    <p>@Html.ValidationMessageFor(m=>m.ClientName)</p>
     <p>Your name: @Html.EditorFor(m=>m.ClientName)</p> 
+
+    <p>@Html.ValidationMessageFor(m=>m.Date)</p>
     <p>Appointment Date: @Html.EditorFor(m=>m.Date)</p>
-    <p>@Html.EditorFor(m=>m.TermsAccept) I accept the terms & conditions</p> 
+
+    <p>@Html.ValidationMessageFor(m=>m.TermsAccept)</p>
+    <p>@Html.EditorFor(m=>m.TermsAccept) I accept the terms & conditions</p>
+
+    <p>@Html.ValidationMessageFor(m => m.EMail)</p>
+    <p>E-mail: @Html.EditorFor(m=>m.EMail)</p>
+     
     <input type="submit" value="Make Booking" />
 }
 
